@@ -7,7 +7,7 @@ const dotenv = require('dotenv').config();
 
 //Protecting the api key
 const api_key = process.env.API_KEY;
-console.log(api_key);
+const list = process.env.list;
 const app = express();
 app.use(bodyParser.urlencoded({extended: true}));
 
@@ -37,7 +37,7 @@ app.post("/", function(req, res){
 
     console.log(jsonData);
 
-    const url = "https://us18.api.mailchimp.com/3.0/lists/de4df286a6";
+    const url = "https://us18.api.mailchimp.com/3.0/lists/" + list;
     
     const authorization = "keithggk23:" + api_key;
 
